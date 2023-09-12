@@ -1,4 +1,4 @@
-# Cesar School Fast Aceleração - Bootcamp Front-End 
+# Cesar School | Fast Aceleração - Bootcamp Front-End 
 
 Repositório Bootcamp em Desenvolvimento Web Frontend da CESAR School - Formação Acelerada em Soluções TechDesign (FAST).
 
