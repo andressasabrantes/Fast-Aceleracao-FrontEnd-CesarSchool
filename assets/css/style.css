@@ -53,3 +53,7 @@ table, td, th {
 tbody td:first-child {
     font-family: monospace;
 }
+
+tr a  {
+    color: aqua;
+}

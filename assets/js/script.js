@@ -13,6 +13,8 @@ const contatos = [
     }
 ]
 
-// console.log(contatos)
+/* console.log(contatos) */
 
-contatos.forEach((item) => console.log(item))
+contatos.forEach((contato) => console.log(contato.nome))
+
+/* console.log(contatos[1].interesses) */
