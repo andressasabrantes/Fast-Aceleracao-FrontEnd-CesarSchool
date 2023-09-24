@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>async/await Example</title>
+</head>
+<body>
+    <h1>async/await Example</h1>
+
+    <!-- Divs para exibir os resultados -->
+    <div>
+        <p>Resultado com await:</p>
+        <p id="resultadoComAwait"></p>
+    </div>
+    <div>
+        <p>Resultado sem await:</p>
+        <p id="resultadoSemAwait"></p>
+    </div>
+
+    <script>
+        // Função que retorna uma Promise simulando uma operação assíncrona
+        function fazerAlgoAssincrono() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const resultado = "Operação assíncrona concluída.";
+                    resolve(resultado);
+                }, 1000);
+            });
+        }
+
+        // Função assíncrona que faz duas chamadas assíncronas, uma com await e outra sem await
+        async function executar() {
+            // Com await
+            try {
+                const resultadoComAwait = await fazerAlgoAssincrono();
+                document.getElementById("resultadoComAwait").innerText = resultadoComAwait;
+            } catch (error) {
+                document.getElementById("resultadoComAwait").innerText = "Erro: " + error;
+            }
+
+            // Sem await
+            const promiseSemAwait = fazerAlgoAssincrono();
+            promiseSemAwait.then((resultado) => {
+                document.getElementById("resultadoSemAwait").innerText = resultado;
+            });
+        }
+
+        // Chamada da função assíncrona
+        executar();
+    </script>
+</body>
+</html>

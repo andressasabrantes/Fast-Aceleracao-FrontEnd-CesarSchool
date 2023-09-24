@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Example</title>
+</head>
+<body>
+    <h1>Promise Example</h1>
+
+    <!-- Div para exibir o resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        // Função que retorna uma Promise simulando uma operação assíncrona
+        function fazerAlgoAssincrono() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const resultado = "Operação concluída.";
+                    // Resolve a Promise com o resultado
+                    resolve(resultado);
+                }, 1000);
+            });
+        }
+
+        // Chamada da função assíncrona com Promises
+        fazerAlgoAssincrono()
+            .then((resultado) => {
+                // Exibir o resultado na div de resultado
+                document.getElementById("resultado").innerText = "Promise resolvida com sucesso: " + resultado;
+            })
+            .catch((error) => {
+                // Exibir erro, caso ocorra
+                document.getElementById("resultado").innerText = "Promise rejeitada: " + error;
+            });
+    </script>
+</body>
+</html>

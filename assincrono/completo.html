@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async JavaScript Example</title>
+</head>
+
+<body>
+    <h1>Async JavaScript Example</h1>
+
+    <!-- Botões para acionar as diferentes abordagens -->
+    <button onclick="chamarApiComCallback()">Chamar com Callback</button>
+    <button onclick="chamarApiComPromise()">Chamar com Promise</button>
+    <button onclick="chamarApiComAsyncAwait()">Chamar com async/await</button>
+
+    <!-- Divs para exibir os resultados -->
+    <div>
+        <p>Resultado com Callback:</p>
+        <p id="resultadoCallback"></p>
+    </div>
+    <div>
+        <p>Resultado com Promise:</p>
+        <p id="resultadoPromise"></p>
+    </div>
+    <div>
+        <p>Resultado com async/await:</p>
+        <p id="resultadoAsyncAwait"></p>
+    </div>
+
+    <script>
+
+        function callback(data) {
+            document.getElementById("resultadoCallback").innerText = `Dados da API (Callback): Título da Tarefa: ${data.title}`;
+        }
+        // Função que simula uma chamada de API assíncrona com um Callback
+        function chamarApiComCallback() {
+            fetch("https://jsonplaceholder.typicode.com/todos/1")
+                .then((response) => response.json())
+                .then((data) => callback(data));
+        }
+
+        // Função que retorna uma Promise simulando uma chamada de API assíncrona
+        function chamarApiComPromise() {
+            fetch("https://jsonplaceholder.typicode.com/todos/1")
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById("resultadoPromise").innerText = `Dados da API (Promise): Título da Tarefa: ${data.title}`;
+                })
+                .catch((error) => {
+                    document.getElementById("resultadoPromise").innerText = "Erro (Promise): " + error.message;
+                });
+        }
+
+        // Função assíncrona que utiliza async/await para chamar a API
+        async function chamarApiComAsyncAwait() {
+            try {
+                var response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+                var data = await response.json();
+                document.getElementById("resultadoAsyncAwait").innerText = `Dados da API (async/await): Título da Tarefa: ${data.title}`;
+            } catch (error) {
+                document.getElementById("resultadoAsyncAwait").innerText = "Erro (async/await): " + error.message;
+            }
+        }
+    </script>
+</body>
+
+</html>

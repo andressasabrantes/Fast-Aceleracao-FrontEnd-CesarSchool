@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Example</title>
+</head>
+<body>
+    <h1>Callback Example</h1>
+    
+    <!-- Div para exibir o resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        // Função que simula uma operação assíncrona com um callback
+        function fazerAlgoAssincrono(callback) {
+            setTimeout(function () {
+                const resultado = "Operação concluída.";
+                // Chamada do callback com o resultado
+                callback(resultado);
+            }, 1000);
+        }
+
+        // Função de callback para exibir o resultado na página
+        function aposConclusao(resultado) {
+            // Exibir o resultado na div de resultado
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        // Chamada da função assíncrona com o callback
+        fazerAlgoAssincrono(aposConclusao);
+    </script>
+</body>
+</html>

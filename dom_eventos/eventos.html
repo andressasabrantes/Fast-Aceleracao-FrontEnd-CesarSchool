@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Eventos em JavaScript</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        #resultadoEventos {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Eventos de Elementos HTML</h1>
+
+<button id="botaoClique">Clique em Mim</button>
+<div id="divMouseOverOut">Passe o Mouse</div>
+<form id="formularioSubmit">
+    <input type="text" placeholder="Digite algo">
+    <input type="submit" value="Enviar">
+</form>
+<input type="text" id="teclaPressionada" placeholder="Pressione uma tecla">
+<div id="resultadoEventos"></div> <!-- Elemento para exibir resultados -->
+
+<h1>Eventos do Ciclo de Vida de um Documento</h1>
+
+<p>Role a página e veja o evento de rolagem sendo acionado.</p>
+
+<script>
+    const resultadoEventos = document.getElementById('resultadoEventos'); // Elemento para exibir resultados
+
+    function exibirResultadoEvento(resultado) {
+        resultadoEventos.innerHTML = `<p>${resultado}</p>`;
+    }
+
+    // Eventos de Elementos HTML
+    const botaoClique = document.getElementById('botaoClique');
+    const divMouseOverOut = document.getElementById('divMouseOverOut');
+    const formularioSubmit = document.getElementById('formularioSubmit');
+    const teclaPressionada = document.getElementById('teclaPressionada');
+
+    botaoClique.addEventListener('click', () => {
+        exibirResultadoEvento('Botão Clicado!');
+    });
+
+    divMouseOverOut.addEventListener('mouseover', () => {
+        divMouseOverOut.innerText = 'Mouse Sobre';
+    });
+
+    divMouseOverOut.addEventListener('mouseout', () => {
+        divMouseOverOut.innerText = 'Passe o Mouse';
+    });
+
+    formularioSubmit.addEventListener('submit', (event) => {
+        event.preventDefault();
+        exibirResultadoEvento('Formulário Enviado!');
+    });
+
+    teclaPressionada.addEventListener('keydown', (event) => {
+        exibirResultadoEvento(`Tecla Pressionada: ${event.key}`);
+    });
+
+    // Eventos do Ciclo de Vida de um Documento
+    window.addEventListener('load', () => {
+        exibirResultadoEvento('A página foi totalmente carregada.');
+    });
+
+    window.addEventListener('unload', () => {
+        exibirResultadoEvento('A página está prestes a ser descarregada.');
+    });
+
+    window.addEventListener('hashchange', () => {
+        exibirResultadoEvento('A parte da URL após o símbolo de hash foi alterada.');
+    });
+
+    window.addEventListener('resize', () => {
+        exibirResultadoEvento('A janela do navegador foi redimensionada.');
+    });
+
+    window.addEventListener('scroll', () => {
+        exibirResultadoEvento('Rolou a página.');
+    });
+</script>
+
+</body>
+</html>
