@@ -1,0 +1,49 @@
+body {
+    background-color: black;
+    color: white;
+  }
+  
+  main {
+    width: 900px;
+    margin: 0 auto;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  .new-contact-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group input, .input-group textarea {
+    border-radius: 10px;
+  }
+  
+  .create-button {
+    background-color: #0D47A1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  thead{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  table, td, th {
+    border-collapse: collapse;
+    border: 1px solid gray;
+    min-width: 200px;
+  }
+  
+  tbody td:first-child {
+    font-family: monospace;
+  }
